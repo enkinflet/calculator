@@ -13,7 +13,7 @@ public class ArabNumber {
         int num1 = Integer.parseInt(number[0].trim());
         int num2 = Integer.parseInt(number[1].trim());
 
-        if ((num1 >= 11 || num1 <= -1) || (num2 >= 11 || num2 <= -1)) {
+        if ((num1 >= 11 || num1 <= 0) || (num2 >= 11 || num2 <= 0)) {
             throw new IllegalArgumentException("Неверный формат данных");
         }
 
@@ -38,14 +38,10 @@ public class ArabNumber {
                 result = num1 * num2;
                 break;
             case '/':
-                try {
-                    result = num1 / num2;
-                } catch (ArithmeticException | InputMismatchException e) {
-                    System.out.println("Исключение : " + e);
-                    System.out.println("На ноль делить нельзя!!");
-                    break;
-                }
-                break;
+
+                result = num1 / num2;
+                 break;
+
             default:
                 throw new IllegalArgumentException("Не верный знак операции");
         }
